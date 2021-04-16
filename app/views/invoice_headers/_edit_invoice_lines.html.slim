@@ -1,0 +1,33 @@
+= form_with(model: @invoice_line, remote: true, format: :js) do |form|
+  table.table
+    thead
+      tr
+        th
+          =form.label :product
+          =form.text_field :product
+        th
+          =form.label :quantity
+          =form.text_field :quantity
+        th
+          =form.label :price
+          =form.text_field :price
+        th
+          =form.label :total
+          =form.number_field :total
+        th
+          =form.label :header_invoice
+          =form.number_field :header_invoice
+        th.text-right  width: '8%'
+          = form.button type: "submit", id: :add_product, title: 'Añadir', class: "btn btn-secondary float-right float-right" do
+    tbody
+      - @invoice_header.invoice_lines.each do |line|
+        tr
+          td.text-center= line.product
+          td.text-center= line.quantity
+          td.text-center= line.price
+          td.text-center= line.total
+          td.text-center= line.header_invoice
+          td.text-right
+            = link_to delete_invoice_line_path(line.id), class: "btn btn-light float-right", title: "Borrar linea", method: 'delete', data: { confirm: 'El producto se borrará de la base de datos.<br> ¿Estás seguro?' }, remote: true, format: :js do
+              i.fas.fa-trash-alt
+

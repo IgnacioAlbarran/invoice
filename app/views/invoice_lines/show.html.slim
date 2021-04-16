@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Product:
+  = @invoice_line.product
+p
+  strong Quantity:
+  = @invoice_line.quantity
+p
+  strong Price:
+  = @invoice_line.price
+p
+  strong Total:
+  = @invoice_line.total
+p
+  strong Header invoice:
+  = @invoice_line.invoice_header.id
+
+= link_to 'Edit', edit_invoice_line_path(@invoice_line)
+'|
+= link_to 'Back', invoice_lines_path

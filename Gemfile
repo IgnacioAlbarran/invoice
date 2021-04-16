@@ -13,6 +13,17 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+gem 'popper_js', '~> 1.11', '>= 1.11.1'
+gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
+gem 'font-awesome-sass', '~> 5.5.0'
+gem 'xray-rails'
+gem "bootstrap_form", '~> 4.0'
+gem "bootstrap-datepicker-rails", '~> 1.8.0'
+gem 'data-confirm-modal'
+gem 'bootstrap-select-rails'
+gem 'chartkick', '~> 3.4', '>= 3.4.2'
+gem 'groupdate', '~> 5.2', '>= 5.2.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 

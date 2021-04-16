@@ -11,6 +11,14 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
+//= require jquery3
 //= require turbolinks
+//= require activestorage
+//= require popper
+//= require bootstrap-sprockets
+//= require data-confirm-modal
+//= require bootstrap-datepicker/core
+//= require bootstrap-select
+//= require chartkick
+//= require Chart.bundle
 //= require_tree .

@@ -1,0 +1,24 @@
+= form_for @invoice_line do |f|
+  - if @invoice_line.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@invoice_line.errors.count, "error")} prohibited this invoice_line from being saved:"
+      ul
+        - @invoice_line.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :product
+    = f.text_field :product
+  .field
+    = f.label :quantity
+    = f.number_field :quantity
+  .field
+    = f.label :price
+    = f.number_field :price
+  .field
+    = f.label :total
+    = f.number_field :total
+  .field
+    = f.label :invoice_header
+    = f.text_field :invoice_header_id
+  .actions = f.submit

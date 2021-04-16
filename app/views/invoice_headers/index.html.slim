@@ -3,6 +3,7 @@ h1 Listing invoice_headers
 table
   thead
     tr
+      th Id
       th Name
       th Last name1
       th Last name2
@@ -19,6 +20,7 @@ table
   tbody
     - @invoice_headers.each do |invoice_header|
       tr
+        td = invoice_header.id
         td = invoice_header.name
         td = invoice_header.last_name1
         td = invoice_header.last_name2

@@ -1,13 +1,16 @@
 p#notice = notice
 
 p
+  strong Invoice Number:
+  = @invoice_header.id
+p
   strong Name:
   = @invoice_header.name
 p
-  strong Last name1:
+  strong Last Name 1:
   = @invoice_header.last_name1
 p
-  strong Last name2:
+  strong Last Name 2:
   = @invoice_header.last_name2
 p
   strong Dni:
@@ -27,6 +30,19 @@ p
 p
   strong Total:
   = @invoice_header.total
+
+table
+  thead
+    tr
+      th Name
+      th Revenue
+      th etc.
+  tbody
+    - @invoice_header.invoice_lines.each do |line|
+      tr
+        - line.each do |attribute, value|
+          td = value
+
 
 = link_to 'Edit', edit_invoice_header_path(@invoice_header)
 '|
