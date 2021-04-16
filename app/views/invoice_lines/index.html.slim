@@ -9,21 +9,19 @@ table
       th Total
       th Invoice header
       th
-      th
-      th
 
   tbody
     - @invoice_lines.each do |invoice_line|
       tr
-        td = invoice_line.product
+        td = link_to invoice_line.product, edit_invoice_line_path(invoice_line)
         td = invoice_line.quantity
         td = invoice_line.price
         td = invoice_line.total
         td = invoice_line.invoice_header.id
-        td = link_to 'Show', invoice_line
-        td = link_to 'Edit', edit_invoice_line_path(invoice_line)
         td = link_to 'Destroy', invoice_line, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
+= link_to 'Nueva Línea', new_invoice_line_path
 
-= link_to 'New Invoice line', new_invoice_line_path
+p
+= link_to 'Mis Facturas', invoice_headers_path

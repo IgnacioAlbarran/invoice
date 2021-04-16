@@ -22,7 +22,8 @@ class InvoiceHeadersController < ApplicationController
   # POST /invoice_headers or /invoice_headers.json
   def create
     @invoice_header = InvoiceHeader.new(invoice_header_params)
-
+    @invoice_header.tasas = @invoice_header.get_tasas
+    @invoice_header.total = @invoice_header.get_total_header
     respond_to do |format|
       if @invoice_header.save
         format.html { redirect_to @invoice_header, notice: "Invoice header was successfully created." }
@@ -64,6 +65,6 @@ class InvoiceHeadersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def invoice_header_params
-      params.require(:invoice_header).permit(:name, :last_name1, :last_name2, :dni, :address, :telephone, :email, :tasas, :total)
+      params.require(:invoice_header).permit(:name, :last_name1, :last_name2, :dni, :address, :telephone, :email)
     end
 end

@@ -22,7 +22,7 @@ class InvoiceLinesController < ApplicationController
   # POST /invoice_lines or /invoice_lines.json
   def create
     @invoice_line = InvoiceLine.new(invoice_line_params)
-
+    @invoice_line.total = @invoice_line.get_total
     respond_to do |format|
       if @invoice_line.save
         format.html { redirect_to @invoice_line, notice: "Invoice line was successfully created." }
@@ -36,6 +36,7 @@ class InvoiceLinesController < ApplicationController
 
   # PATCH/PUT /invoice_lines/1 or /invoice_lines/1.json
   def update
+    @invoice_line.total = @invoice_line.get_total
     respond_to do |format|
       if @invoice_line.update(invoice_line_params)
         format.html { redirect_to @invoice_line, notice: "Invoice line was successfully updated." }
@@ -64,6 +65,6 @@ class InvoiceLinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def invoice_line_params
-      params.require(:invoice_line).permit(:product, :quantity, :price, :total, :invoice_header_id)
+      params.require(:invoice_line).permit(:product, :quantity, :price, :invoice_header_id)
     end
 end

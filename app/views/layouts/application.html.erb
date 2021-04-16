@@ -9,7 +9,25 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="sidebar-fixed header-fixed">
+    <div class="page-wrapper">
+      <nav class="navbar page-header"></nav>
+      <div class="container-fluid">
+        <div class="sidebar">
+          <%= render 'layouts/shared/menu'%>
+        </div>
+        <div class="content">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <div class="alert-message">
+      <% if notice || @message %>
+        <p id="notice">
+          <%= notice || @message %>
+        </p>
+      <% end %>
+    </div>
   </body>
 </html>
+

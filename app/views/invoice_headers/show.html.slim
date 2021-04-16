@@ -1,4 +1,4 @@
-p#notice = notice
+h1.section-title Detalle de Factura
 
 p
   strong Invoice Number:
@@ -26,22 +26,27 @@ p
   = @invoice_header.email
 p
   strong Tasas:
-  = @invoice_header.tasas
+  = @invoice_header.get_tasas
 p
   strong Total:
-  = @invoice_header.total
+  = @invoice_header.get_total_header
 
-table
+table.table
   thead
     tr
-      th Name
-      th Revenue
-      th etc.
+      th Producto
+      th Cantidad
+      th Precio
+      th Total
+      th Factura
   tbody
     - @invoice_header.invoice_lines.each do |line|
       tr
-        - line.each do |attribute, value|
-          td = value
+        td = line.product
+        td = line.quantity
+        td = line.price
+        td = line.total
+        td = line.invoice_header_id
 
 
 = link_to 'Edit', edit_invoice_header_path(@invoice_header)

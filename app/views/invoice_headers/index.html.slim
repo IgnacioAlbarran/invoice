@@ -1,4 +1,4 @@
-h1 Listing invoice_headers
+h1.section-title Listado de Facturas
 
 table
   thead
@@ -18,22 +18,24 @@ table
       th
 
   tbody
-    - @invoice_headers.each do |invoice_header|
+    - @invoice_headers.each do |header|
       tr
-        td = invoice_header.id
-        td = invoice_header.name
-        td = invoice_header.last_name1
-        td = invoice_header.last_name2
-        td = invoice_header.dni
-        td = invoice_header.address
-        td = invoice_header.telephone
-        td = invoice_header.email
-        td = invoice_header.tasas
-        td = invoice_header.total
-        td = link_to 'Show', invoice_header
-        td = link_to 'Edit', edit_invoice_header_path(invoice_header)
-        td = link_to 'Destroy', invoice_header, data: { confirm: 'Are you sure?' }, method: :delete
+        td = header.id
+        td = header.name
+        td = header.last_name1
+        td = header.last_name2
+        td = header.dni
+        td = header.address
+        td = header.telephone
+        td = header.email
+        td = header.get_tasas
+        td = (header.get_tasas + header.get_total_header).round(2)
+        td = link_to 'Show', header
+        td = link_to 'Edit', edit_invoice_header_path(header)
+        td = link_to 'Destroy', header, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
 = link_to 'New Invoice header', new_invoice_header_path
+p
+= link_to 'Nueva compra', new_invoice_line_path

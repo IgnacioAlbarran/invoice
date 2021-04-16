@@ -7,18 +7,15 @@
           li = message
 
   .field
-    = f.label :product
+    = f.label :Producto
     = f.text_field :product
   .field
-    = f.label :quantity
+    = f.label :Cantidad
     = f.number_field :quantity
   .field
-    = f.label :price
+    = f.label :Precio
     = f.number_field :price
   .field
-    = f.label :total
-    = f.number_field :total
-  .field
-    = f.label :invoice_header
+    = f.label :Factura
     = f.text_field :invoice_header_id
-  .actions = f.submit
+  .actions = f.submit 'Guardar'

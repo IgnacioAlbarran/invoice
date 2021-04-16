@@ -7,24 +7,31 @@
           li = message
 
   .field
-    = f.label :name
+    = f.label :Nobre
+    br
     = f.text_field :name
   .field
-    = f.label :last_name1
+    = f.label :Apellido_1
+    br
     = f.text_field :last_name1
   .field
-    = f.label :last_name2
+    = f.label :Apellido_2
+    br
     = f.text_field :last_name2
   .field
-    = f.label :dni
+    = f.label :DNI
+    br
     = f.text_field :dni
   .field
-    = f.label :address
+    = f.label :Direccion
+    br
     = f.text_field :address
   .field
-    = f.label :telephone
+    = f.label :Telefono
+    br
     = f.number_field :telephone
   .field
-    = f.label :email
+    = f.label :Email
+    br
     = f.text_field :email
-  .actions = f.submit
+  .actions = f.submit 'Guardar'
