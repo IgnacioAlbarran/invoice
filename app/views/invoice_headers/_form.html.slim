@@ -1,0 +1,36 @@
+= form_for @invoice_header do |f|
+  - if @invoice_header.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@invoice_header.errors.count, "error")} prohibited this invoice_header from being saved:"
+      ul
+        - @invoice_header.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :last_name1
+    = f.text_field :last_name1
+  .field
+    = f.label :last_name2
+    = f.text_field :last_name2
+  .field
+    = f.label :dni
+    = f.text_field :dni
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :telephone
+    = f.number_field :telephone
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :tasas
+    = f.number_field :tasas
+  .field
+    = f.label :total
+    = f.number_field :total
+  .actions = f.submit

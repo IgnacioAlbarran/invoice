@@ -1,0 +1,37 @@
+h1 Listing invoice_headers
+
+table
+  thead
+    tr
+      th Name
+      th Last name1
+      th Last name2
+      th Dni
+      th Address
+      th Telephone
+      th Email
+      th Tasas
+      th Total
+      th
+      th
+      th
+
+  tbody
+    - @invoice_headers.each do |invoice_header|
+      tr
+        td = invoice_header.name
+        td = invoice_header.last_name1
+        td = invoice_header.last_name2
+        td = invoice_header.dni
+        td = invoice_header.address
+        td = invoice_header.telephone
+        td = invoice_header.email
+        td = invoice_header.tasas
+        td = invoice_header.total
+        td = link_to 'Show', invoice_header
+        td = link_to 'Edit', edit_invoice_header_path(invoice_header)
+        td = link_to 'Destroy', invoice_header, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Invoice header', new_invoice_header_path

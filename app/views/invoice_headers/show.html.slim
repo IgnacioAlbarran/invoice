@@ -1,0 +1,33 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @invoice_header.name
+p
+  strong Last name1:
+  = @invoice_header.last_name1
+p
+  strong Last name2:
+  = @invoice_header.last_name2
+p
+  strong Dni:
+  = @invoice_header.dni
+p
+  strong Address:
+  = @invoice_header.address
+p
+  strong Telephone:
+  = @invoice_header.telephone
+p
+  strong Email:
+  = @invoice_header.email
+p
+  strong Tasas:
+  = @invoice_header.tasas
+p
+  strong Total:
+  = @invoice_header.total
+
+= link_to 'Edit', edit_invoice_header_path(@invoice_header)
+'|
+= link_to 'Back', invoice_headers_path
