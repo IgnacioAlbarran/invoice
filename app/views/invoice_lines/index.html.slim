@@ -1,4 +1,4 @@
-h1 Listing invoice_lines
+h1 Listado de lineas de Factura
 
 table
   thead
@@ -18,7 +18,7 @@ table
         td = invoice_line.price
         td = invoice_line.total
         td = invoice_line.invoice_header.id
-        td = link_to 'Destroy', invoice_line, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'borrar', invoice_line, data: { confirm: 'Estás seguro/a?' }, method: :delete
 
 br
 = link_to 'Nueva Línea', new_invoice_line_path

@@ -13,6 +13,7 @@ class InvoiceLinesController < ApplicationController
   # GET /invoice_lines/new
   def new
     @invoice_line = InvoiceLine.new
+    @invoice_header = InvoiceHeader.find(params[:id])
   end
 
   # GET /invoice_lines/1/edit
@@ -23,9 +24,10 @@ class InvoiceLinesController < ApplicationController
   def create
     @invoice_line = InvoiceLine.new(invoice_line_params)
     @invoice_line.total = @invoice_line.get_total
+
     respond_to do |format|
       if @invoice_line.save
-        format.html { redirect_to @invoice_line, notice: "Invoice line was successfully created." }
+        format.html { redirect_to invoice_header_path(@invoice_line.invoice_header_id), notice: "Linea de Factura creada con éxito." }
         format.json { render :show, status: :created, location: @invoice_line }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +41,7 @@ class InvoiceLinesController < ApplicationController
     @invoice_line.total = @invoice_line.get_total
     respond_to do |format|
       if @invoice_line.update(invoice_line_params)
-        format.html { redirect_to @invoice_line, notice: "Invoice line was successfully updated." }
+        format.html { redirect_to @invoice_line, notice: "Linea de Factura actualizada con éxito." }
         format.json { render :show, status: :ok, location: @invoice_line }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +54,7 @@ class InvoiceLinesController < ApplicationController
   def destroy
     @invoice_line.destroy
     respond_to do |format|
-      format.html { redirect_to invoice_lines_url, notice: "Invoice line was successfully destroyed." }
+      format.html { redirect_to invoice_lines_url, notice: "Linea de Factura destruida." }
       format.json { head :no_content }
     end
   end

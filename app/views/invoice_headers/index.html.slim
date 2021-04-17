@@ -30,12 +30,12 @@ table
         td = header.email
         td = header.get_tasas
         td = (header.get_tasas + header.get_total_header).round(2)
-        td = link_to 'Show', header
-        td = link_to 'Edit', edit_invoice_header_path(header)
-        td = link_to 'Destroy', header, data: { confirm: 'Are you sure?' }, method: :delete
+        td
+          a.btn.btn-success href=invoice_header_path(id: header.id) role="button" Acceder
+        td = link_to 'Editar', edit_invoice_header_path(header)
+        td = link_to 'Borrar', header, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'New Invoice header', new_invoice_header_path
-p
-= link_to 'Nueva compra', new_invoice_line_path
+= link_to 'Nueva Factura', new_invoice_header_path
+

@@ -1,25 +1,25 @@
 h1.section-title Detalle de Factura
 
 p
-  strong Invoice Number:
+  strong Factura:
   = @invoice_header.id
 p
-  strong Name:
+  strong Nombre:
   = @invoice_header.name
 p
-  strong Last Name 1:
+  strong Apellido 1:
   = @invoice_header.last_name1
 p
-  strong Last Name 2:
+  strong Apellido 2:
   = @invoice_header.last_name2
 p
   strong Dni:
   = @invoice_header.dni
 p
-  strong Address:
+  strong Direccion:
   = @invoice_header.address
 p
-  strong Telephone:
+  strong Telefono:
   = @invoice_header.telephone
 p
   strong Email:
@@ -47,8 +47,11 @@ table.table
         td = line.price
         td = line.total
         td = line.invoice_header_id
+        td = link_to 'Borrar', delete_invoice_line_path(line)
 
-
-= link_to 'Edit', edit_invoice_header_path(@invoice_header)
+= link_to 'Editar', edit_invoice_header_path(@invoice_header)
 '|
-= link_to 'Back', invoice_headers_path
+= link_to 'Atras', invoice_header_path(@invoice_header)
+p
+a.btn.btn-success href=new_invoice_line_path(id: @invoice_header) role="button"  Nueva Linea
+

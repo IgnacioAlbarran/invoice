@@ -8,14 +8,18 @@
 
   .field
     = f.label :Producto
+    br
     = f.text_field :product
   .field
     = f.label :Cantidad
+    br
     = f.number_field :quantity
   .field
     = f.label :Precio
+    br
     = f.number_field :price
   .field
-    = f.label :Factura
-    = f.text_field :invoice_header_id
+    = f.hidden_field :invoice_header_id, value: @invoice_header.id
+
+    p
   .actions = f.submit 'Guardar'
