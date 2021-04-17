@@ -50,9 +50,7 @@ table.table
         td = line.invoice_header_id
         td = link_to "Borrar", delete_line_path(line), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }
 
-= link_to 'Editar', edit_invoice_header_path(@invoice_header)
-'|
-= link_to 'Atras', invoice_header_path(@invoice_header)
-p
-a.btn.btn-success href=new_invoice_line_path(id: @invoice_header) role="button"  Nueva Linea
 
+a.btn.btn-success href=new_invoice_line_path(id: @invoice_header) role="button"  Nueva Linea
+p
+= link_to 'Volver', invoice_headers_path(@invoice_header)
