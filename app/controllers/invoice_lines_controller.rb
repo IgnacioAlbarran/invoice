@@ -54,7 +54,7 @@ class InvoiceLinesController < ApplicationController
   def destroy
     @invoice_line.destroy
     respond_to do |format|
-      format.html { redirect_to invoice_lines_url, notice: "Linea de Factura destruida." }
+      format.html { redirect_to invoice_header_path(@invoice_line.invoice_header_id), notice: "Linea de Factura destruida." }
       format.json { head :no_content }
     end
   end

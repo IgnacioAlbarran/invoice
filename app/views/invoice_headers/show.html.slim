@@ -39,6 +39,7 @@ table.table
       th Precio
       th Total
       th Factura
+      th
   tbody
     - @invoice_header.invoice_lines.each do |line|
       tr
@@ -47,7 +48,7 @@ table.table
         td = line.price
         td = line.total
         td = line.invoice_header_id
-        td = link_to 'Borrar', delete_invoice_line_path(line)
+        td = link_to "Borrar", delete_line_path(line), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }
 
 = link_to 'Editar', edit_invoice_header_path(@invoice_header)
 '|
